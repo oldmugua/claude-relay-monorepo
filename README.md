@@ -183,7 +183,7 @@ npm run format
 
 #### 后端环境变量
 通过 GitHub 部署时在 Cloudflare Dashboard 中设置：
-- `NODE_ENV` - 运行环境（production/preview）
+- `NODE_ENV` - 运行环境（通常设为 `production`）
 - `FRONTEND_URL` - 前端地址，用于 CORS 配置
 - `ADMIN_USERNAME` - 管理员用户名
 - `ADMIN_PASSWORD` - 管理员密码
