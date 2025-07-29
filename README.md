@@ -21,13 +21,7 @@
 
 点击本项目右上角的 Fork 按钮，将项目 Fork 到您的 GitHub 账号。
 
-#### 2. 创建 KV Namespace
-
-登录 [Cloudflare Dashboard](https://dash.cloudflare.com)，在左侧菜单中找到 Workers & Pages → KV，创建一个新的 namespace：
-- 名称：`claude-relay-admin-kv`
-- 记录生成的 ID
-
-#### 3. 部署后端（Workers）
+#### 2. 部署后端（Workers）
 
 > ⚠️ **注意**：由于 monorepo 结构，项目根目录包含了 `wrangler.json` 文件来支持 Workers 部署。
 
@@ -41,7 +35,7 @@
 6. 点击 "Deploy"
 7. 记录后端的 URL（如 `https://claude-relay-backend.workers.dev`）
 
-#### 4. 部署前端（Pages）
+#### 3. 部署前端（Pages）
 
 1. 在 Cloudflare Dashboard 中，点击 "Create" → "Pages" → "Import an existing Git repository"
 2. 选择同一个 Fork 的仓库
@@ -57,12 +51,18 @@
 5. 点击 "Save and Deploy"
 6. 记录前端的 URL（如 `https://claude-relay-frontend.pages.dev`）
 
-#### 5. 配置环境变量
+#### 4. 配置环境变量
 
-部署完成后，需要配置两边的环境变量：
+部署完成后，需要配置后端的环境变量和 KV 存储：
 
-**后端 Worker 环境变量：**
-1. 进入后端 Worker 的 Settings → Variables
+**创建 KV Namespace：**
+1. 在 Cloudflare Dashboard 中，进入 Workers & Pages → KV
+2. 点击 "Create a namespace"
+3. 名称输入：`claude-relay-admin-kv`
+4. 点击 "Add"，记录生成的 ID
+
+**配置后端 Worker：**
+1. 进入后端 Worker 的 Settings → Variables and Secrets
 2. 添加环境变量：
    - `NODE_ENV`: `production`
    - `FRONTEND_URL`: 填入前端的实际地址
