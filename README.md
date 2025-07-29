@@ -39,15 +39,7 @@
 5. Advanced settings（展开高级设置）：
    - **Root directory**: `/packages/backend`
 6. 点击 "Deploy"
-7. 部署后，进入 Settings → Variables：
-   - 添加环境变量：
-     - `NODE_ENV`: `production`
-     - `FRONTEND_URL`: `https://claude-relay-frontend.pages.dev`（稍后更新）
-     - `ADMIN_USERNAME`: 您的管理员用户名
-     - `ADMIN_PASSWORD`: 您的密码（请使用强密码）
-   - 添加 KV Namespace 绑定：
-     - Variable name: `CLAUDE_RELAY_ADMIN_KV`
-     - KV namespace: 选择您创建的 namespace
+7. 记录后端的 URL（如 `https://claude-relay-backend.workers.dev`）
 
 #### 4. 部署前端（Pages）
 
@@ -63,10 +55,28 @@
    - **Environment variables**:
      - `NUXT_PUBLIC_API_BASE_URL`: 您的后端 URL（如 `https://claude-relay-backend.workers.dev`）
 5. 点击 "Save and Deploy"
+6. 记录前端的 URL（如 `https://claude-relay-frontend.pages.dev`）
 
-#### 5. 更新后端环境变量
+#### 5. 配置环境变量
 
-部署完成后，返回后端 Worker 设置，更新 `FRONTEND_URL` 为前端的实际地址。
+部署完成后，需要配置两边的环境变量：
+
+**后端 Worker 环境变量：**
+1. 进入后端 Worker 的 Settings → Variables
+2. 添加环境变量：
+   - `NODE_ENV`: `production`
+   - `FRONTEND_URL`: 填入前端的实际地址
+   - `ADMIN_USERNAME`: 您的管理员用户名
+   - `ADMIN_PASSWORD`: 您的密码（请使用强密码）
+3. 添加 KV Namespace 绑定：
+   - Variable name: `CLAUDE_RELAY_ADMIN_KV`
+   - KV namespace: 选择您创建的 namespace
+4. 点击 "Save and deploy"
+
+**前端 Pages 环境变量（如果需要更新）：**
+1. 进入前端 Pages 的 Settings → Environment variables
+2. 确认 `NUXT_PUBLIC_API_BASE_URL` 指向正确的后端地址
+3. 如需修改，更新后重新部署
 
 ### 方式二：本地开发部署
 
