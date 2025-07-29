@@ -32,11 +32,13 @@
 1. 在 Cloudflare Dashboard 中，进入 Workers & Pages
 2. 点击 "Create" → "Workers" → "Import from GitHub"
 3. 连接您的 GitHub 账号并选择 Fork 的仓库
-4. 配置部署：
+4. 基本配置：
    - **Name**: `claude-relay-backend`
-   - **Production branch**: `main`
-5. 点击 "Deploy"
-6. 部署后，进入 Settings → Variables：
+   - 如果只有 main 分支，会自动使用
+5. Advanced settings（展开高级设置）：
+   - **Root directory**: `/packages/backend`
+6. 点击 "Deploy"
+7. 部署后，进入 Settings → Variables：
    - 添加环境变量：
      - `NODE_ENV`: `production`
      - `FRONTEND_URL`: `https://claude-relay-frontend.pages.dev`（稍后更新）
