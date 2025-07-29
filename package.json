@@ -1,0 +1,43 @@
+{
+  "name": "claude-relay-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "build:all": "npm run build:frontend && npm run build:backend",
+    "deploy:frontend": "npm run deploy --workspace=frontend",
+    "deploy:backend": "npm run deploy --workspace=backend",
+    "deploy:all": "npm run build:all && npm run deploy:backend && npm run deploy:frontend",
+    "type-check": "npm run type-check --workspace=backend",
+    "lint": "eslint . --ext .ts,.js,.vue",
+    "lint:fix": "eslint . --ext .ts,.js,.vue --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "keywords": [
+    "cloudflare",
+    "nuxt",
+    "hono",
+    "typescript"
+  ],
+  "license": "MIT",
+  "description": "Claude Relay Monorepo with Nuxt frontend and Hono backend",
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.3.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "concurrently": "^8.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^4.26.0"
+  }
+}

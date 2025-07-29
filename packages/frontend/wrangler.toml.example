@@ -1,0 +1,5 @@
+name = "claude-relay-frontend"
+compatibility_date = "2025-07-25"
+
+[vars]
+NUXT_PUBLIC_API_BASE_URL = "https://your-backend.workers.dev"

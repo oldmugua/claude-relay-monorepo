@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义样式 */
+.claude-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}

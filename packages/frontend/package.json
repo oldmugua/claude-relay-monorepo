@@ -1,0 +1,19 @@
+{
+  "name": "frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "deploy": "npx wrangler pages deploy dist --project-name claude-relay-frontend"
+  },
+  "dependencies": {
+    "nuxt": "^4.0.1",
+    "vue": "^3.5.17",
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "@pinia/nuxt": "^0.5.1"
+  }
+}
