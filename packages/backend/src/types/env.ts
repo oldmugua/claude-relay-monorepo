@@ -4,7 +4,6 @@
 
 export interface Bindings {
   // 环境变量
-  FRONTEND_URL?: string
   NODE_ENV?: string
   
   // 管理员认证

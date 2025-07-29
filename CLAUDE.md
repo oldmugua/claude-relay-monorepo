@@ -63,8 +63,7 @@
 ### 环境配置
 
 #### 后端环境变量 (wrangler.toml)
-- `NODE_ENV` - 控制错误详细程度和 CORS 行为 (production/preview)
-- `FRONTEND_URL` - 前端 URL，用于 CORS 配置
+- `NODE_ENV` - 控制错误详细程度 (production/preview)
 - `ADMIN_USERNAME` - 管理中心登录用户名 (默认: admin)
 - `ADMIN_PASSWORD` - 管理中心登录密码 (默认: password123)
 - `CLAUDE_RELAY_ADMIN_KV` - KV Namespace 绑定，存储管理数据和供应商配置

@@ -3,6 +3,7 @@ import { cors } from 'hono/cors'
 import { adminRoutes } from './routes/admin'
 import { claudeRoutes } from './routes/claude'
 import { errorHandler } from './middleware/result-handler'
+import { kvValidator } from './middleware/kv-validator'
 import { AdminService } from './services/admin'
 import type { Bindings } from './types/env'
 
@@ -12,6 +13,9 @@ const app = new Hono<{ Bindings: Bindings }>()
 // ==================== 中间件配置 ====================
 // 全局异常处理中间件 - 放在最前面
 app.use('*', errorHandler())
+
+// KV namespace 验证中间件
+app.use('*', kvValidator())
 
 // CORS 配置 - 统一处理所有请求包括 OPTIONS 预检
 app.use('*', cors({

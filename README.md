@@ -56,27 +56,24 @@
 部署完成后，需要配置后端的环境变量和 KV 存储：
 
 **创建 KV Namespace：**
-1. 在 Cloudflare Dashboard 中，进入 Workers & Pages → KV
-2. 点击 "Create a namespace"
-3. 名称输入：`claude-relay-admin-kv`
-4. 点击 "Add"，记录生成的 ID
+1. 在 Cloudflare Dashboard 左侧菜单，进入 Storage & Databases → KV
+2. 点击 "Create Instance"
+3. Namespace name 输入：`claude-relay-admin-kv`
+4. 点击 "Create"
 
 **配置后端 Worker：**
 1. 进入后端 Worker 的 Settings → Variables and Secrets
 2. 添加环境变量：
    - `NODE_ENV`: `production`
-   - `FRONTEND_URL`: 填入前端的实际地址
    - `ADMIN_USERNAME`: 您的管理员用户名
    - `ADMIN_PASSWORD`: 您的密码（请使用强密码）
-3. 添加 KV Namespace 绑定：
+3. 点击 "Save and deploy"
+4. 进入后端 Worker 的 Bindings（与 Settings 同级）
+5. 点击 "Add binding"，选择 "KV namespace"
+6. 配置绑定：
    - Variable name: `CLAUDE_RELAY_ADMIN_KV`
-   - KV namespace: 选择您创建的 namespace
-4. 点击 "Save and deploy"
-
-**前端 Pages 环境变量（如果需要更新）：**
-1. 进入前端 Pages 的 Settings → Environment variables
-2. 确认 `NUXT_PUBLIC_API_BASE_URL` 指向正确的后端地址
-3. 如需修改，更新后重新部署
+   - KV namespace: 选择刚创建的 `claude-relay-admin-kv`
+7. 点击 "Add binding"
 
 ### 方式二：本地开发部署
 
@@ -197,7 +194,6 @@ npm run format
 #### 后端环境变量
 通过 GitHub 部署时在 Cloudflare Dashboard 中设置：
 - `NODE_ENV` - 运行环境（通常设为 `production`）
-- `FRONTEND_URL` - 前端地址，用于 CORS 配置
 - `ADMIN_USERNAME` - 管理员用户名
 - `ADMIN_PASSWORD` - 管理员密码
 

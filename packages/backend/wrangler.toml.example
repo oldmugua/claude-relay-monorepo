@@ -14,7 +14,6 @@ crons = ["0 */6 * * *"]
 # 环境变量配置
 [vars]
 NODE_ENV = "production"
-FRONTEND_URL = "https://your-frontend.pages.dev"
 # 管理员认证信息请在 .dev.vars 或 Cloudflare Dashboard 中设置：
 # ADMIN_USERNAME = "your-admin-username"
 # ADMIN_PASSWORD = "your-secure-password"
