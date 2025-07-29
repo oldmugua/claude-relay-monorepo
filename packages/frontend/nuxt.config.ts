@@ -46,6 +46,10 @@ export default defineNuxtConfig({
   // Cloudflare Pages 部署配置
   nitro: {
     preset: 'cloudflare-pages',
+    output: {
+      dir: 'dist',
+      publicDir: 'dist'
+    },
     // 预渲染优化
     prerender: {
       crawlLinks: false

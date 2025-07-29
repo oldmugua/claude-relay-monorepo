@@ -51,13 +51,13 @@
 
 #### 4. 部署前端（Pages）
 
-1. 在 Cloudflare Dashboard 中，点击 "Create" → "Pages" → "Connect to Git"
+1. 在 Cloudflare Dashboard 中，点击 "Create" → "Pages" → "Import an existing Git repository"
 2. 选择同一个 Fork 的仓库
 3. 配置构建：
    - **Project name**: `claude-relay-frontend`
    - **Framework preset**: 选择 `Nuxt.js`
-   - **Build command**: `npm run build`
-   - **Build output directory**: `.output/public`
+   - **Build command**: `npm install && npm run build`
+   - **Build output directory**: `dist`
 4. Advanced settings（展开高级设置）：
    - **Root directory**: `/packages/frontend`
    - **Environment variables**:
