@@ -29,12 +29,13 @@
 
 #### 3. 部署后端（Workers）
 
+> ⚠️ **注意**：由于 monorepo 结构，项目根目录包含了 `wrangler.json` 文件来支持 Workers 部署。
+
 1. 在 Cloudflare Dashboard 中，进入 Workers & Pages
 2. 点击 "Create" → "Workers" → "Import from GitHub"
 3. 连接您的 GitHub 账号并选择 Fork 的仓库
 4. 基本配置：
-   - **Name**: `claude-relay-backend`
-   - 如果只有 main 分支，会自动使用
+   - **Worker name**: `claude-relay-backend`
 5. Advanced settings（展开高级设置）：
    - **Root directory**: `/packages/backend`
 6. 点击 "Deploy"
@@ -54,14 +55,14 @@
 2. 选择同一个 Fork 的仓库
 3. 配置构建：
    - **Project name**: `claude-relay-frontend`
-   - **Production branch**: `main`
    - **Framework preset**: 选择 `Nuxt.js`
-   - **Build command**: `npm install && npm run build:frontend`
-   - **Build output directory**: `packages/frontend/.output/public`
-   - **Root directory**: `packages/frontend`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `.output/public`
+4. Advanced settings（展开高级设置）：
+   - **Root directory**: `/packages/frontend`
    - **Environment variables**:
      - `NUXT_PUBLIC_API_BASE_URL`: 您的后端 URL（如 `https://claude-relay-backend.workers.dev`）
-4. 点击 "Save and Deploy"
+5. 点击 "Save and Deploy"
 
 #### 5. 更新后端环境变量
 
